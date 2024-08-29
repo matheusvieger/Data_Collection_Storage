@@ -15,3 +15,8 @@ Pense em uma empresa, desenhe as tabelas Relacionais e Multidimensionais
 6. Crie o Script SQL para criar a tabela FATO (_Extract_/_Data Collection_)
 
 Para essa atividade pode ser utilizado o *Draw.io* para criar os desenhos das tabelas.
+
+# Case
+
+A empresa, o colégio Santa Edwiges de Ensino, contratou a dupla para criar um banco de dados onde contenha os dados de seus alunos, professores, disciplinas e notas dos alunos.
+Deve ser também criada uma tabela fato para reunir as dimensões.
