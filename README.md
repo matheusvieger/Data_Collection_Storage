@@ -81,3 +81,57 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 | Ano Letivo          | `Ano_Letivo`              |       |
 | Código do Professor | `ID_Professor_Orientador` | FK    |
 
+## 3. Crie o Glossário de Dados
+
+### Alunos
+
+| Campo            | Descrição                                 |
+|------------------|-------------------------------------------|
+| ID_Aluno         | Identificador único do aluno.             |
+| Nome_Aluno       | Nome completo do aluno.                   |
+| Data_Nascimento  | Data de nascimento do aluno.              |
+| Genero           | Gênero o qual o aluno se identifica.      |
+| Endereço         | Endereço de residência do aluno.          |
+| Telefone_Contato | Telefone de contato do responsável legal. |
+| Email_Contato    | E-mail de contato do responsável legal.   |
+
+### Professores
+
+| Campo            | Descrição                                |
+|------------------|------------------------------------------|
+| ID_Professor     | Identificador único do professor.        |
+| Nome_Professor   | Nome completo do professor.              |
+| Data_Nascimento  | Data de nascimento do professor.         |
+| Genero           | Gênero o qual o professor se identifica. |
+| Endereço         | Endereço de residência do professor.     |
+| Telefone_Contato | Telefone de contato do professor.        |
+| Email_Contato    | E-mail de contato do professor.          |
+
+### Disciplinas
+
+| Campo           | Descrição                                                  |
+|-----------------|------------------------------------------------------------|
+| ID_Disciplina   | Identificador único da disciplina.                         |
+| Nome_Disciplina | Nome completo da disciplina.                               |
+| Descricao       | Breve descrição da disciplina.                             |
+| Carga Horária   | Tempo, em horas, que o aluno terá da disciplina.           |
+| ID_Professor    | Identificador único do professor que leciona a disciplina. |
+
+### Notas
+
+| Campo          | Descrição                                                          |
+|----------------|--------------------------------------------------------------------|
+| ID_Nota        | Identificador único da nota.                                       |
+| ID_Aluno       | Identificador único do aluno detentor da nota.                     |
+| ID_Disciplina  | Identificador único da disciplina na qual o aluno obteve a nota.   |
+| Nota           | Valor da nota obtida pelo aluno, com uma casa decimal de precisão. |
+| Data_Avaliacao | Data na qual a avaliação foi aplicada.                             |
+
+### Turmas
+
+| Campo                   | Descrição                                             |
+|-------------------------|-------------------------------------------------------|
+| ID_Turma                | Identificador único da turma.                         |
+| Nome_Turma              | Nome da Turma.                                        |
+| Ano_Letivo              | Ano letivo das turmas.                                |
+| ID_Professor_Orientador | Identificador único do professor orientador da turma. |
