@@ -154,4 +154,4 @@ Todo o código SQL pode ser visualizado baixando o arquivo disponibilizado no li
 
 Recomendo o uso do SQLonline para essa consulta, um SGBD gratuito:
 
-![Acesse o SQLOnline](https://sqliteonline.com/)
+![Acesse o SQLOnline]<https://sqliteonline.com/>
