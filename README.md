@@ -144,4 +144,4 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 | Nota           | Valor da nota obtida pelo aluno, com uma casa decimal de precisão. |
 | Data_Avaliacao | Data na qual a avaliação foi aplicada.                             |
 
-
+![relational](./Representations/tbl_Fato.png)
