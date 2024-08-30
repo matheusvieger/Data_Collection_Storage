@@ -145,3 +145,9 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 | Data_Avaliacao | Data na qual a avaliação foi aplicada.                             |
 
 ![relational](./Representations/tbl_Fato.png)
+
+## 6. Crie o Script SQL para criar a tabela FATO (_Extract_/_Data Collection_)
+
+Todo o código SQL pode ser visualizado baixando o arquivo disponibilizado no link
+![relational](./Projeto Data_Collection_Storage.db)
+
