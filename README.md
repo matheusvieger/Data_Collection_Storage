@@ -18,5 +18,5 @@ Para essa atividade pode ser utilizado o *Draw.io* para criar os desenhos das ta
 
 # Case
 
-A empresa, o colégio Santa Edwiges de Ensino, pretende criar um banco de dados onde contenha os dados de seus alunos, professores, disciplinas e notas dos alunos.
+A empresa, o colégio Godai de Ensino, pretende criar um banco de dados onde contenha os dados de seus alunos, professores, disciplinas e notas dos alunos.
 Deve ser também criada uma tabela fato para reunir as dimensões.
