@@ -62,16 +62,6 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 | Carga Horária           | `Carga_Horaria`   |       |
 | Código do Professor     | `Endereco`        | FK    |
 
-### Notas
-
-| Lógico               | Físico          | Chave |
-|----------------------|-----------------|-------|
-| Código da Nota       | `ID_Nota`       | PK    |
-| Código do Aluno      | `ID_Aluno`      | FK    |
-| Código da Disciplina | `ID_Disciplina` | FK    |
-| Nota do Aluno        | `Nota`          |       |
-| Data da Avaliação    | `Endereco`      |       |
-
 ### Turmas
 
 | Lógico              | Físico                    | Chave |
@@ -116,16 +106,6 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 | Descricao       | Breve descrição da disciplina.                             |
 | Carga Horária   | Tempo, em horas, que o aluno terá da disciplina.           |
 | ID_Professor    | Identificador único do professor que leciona a disciplina. |
-
-### Notas
-
-| Campo          | Descrição                                                          |
-|----------------|--------------------------------------------------------------------|
-| ID_Nota        | Identificador único da nota.                                       |
-| ID_Aluno       | Identificador único do aluno detentor da nota.                     |
-| ID_Disciplina  | Identificador único da disciplina na qual o aluno obteve a nota.   |
-| Nota           | Valor da nota obtida pelo aluno, com uma casa decimal de precisão. |
-| Data_Avaliacao | Data na qual a avaliação foi aplicada.                             |
 
 ### Turmas
 
