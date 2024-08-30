@@ -152,7 +152,7 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 
 Todo o código SQL pode ser visualizado baixando o arquivo disponibilizado no link:
 
-![Download Projeto_Data_Collection_Storage.db](https://github.com/matheusvieger/Data_Collection_Storage/blob/main/Projeto_Data_Collection_Storage.db)
+<img src="https://thumbs.dreamstime.com/b/%C3%ADcone-ou-logotipo-do-base-de-dados-na-linha-estilo-moderna-81367896.jpg" alt="Download Projeto_Data_Collection_Storage.db" width="30%"/>(https://github.com/matheusvieger/Data_Collection_Storage/blob/main/Projeto_Data_Collection_Storage.db)
 
 Recomendo o uso do SQLonline para essa consulta, um SGBD gratuito:
 
