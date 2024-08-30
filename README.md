@@ -149,5 +149,4 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 ## 6. Crie o Script SQL para criar a tabela FATO (_Extract_/_Data Collection_)
 
 Todo o código SQL pode ser visualizado baixando o arquivo disponibilizado no link
-![relational](./Projeto_Data_Collection_Storage.db)
-
+![Download Projeto_Data_Collection_Storage.db](https://github.com/matheusvieger/Data_Collection_Storage/blob/main/Projeto_Data_Collection_Storage.db)
