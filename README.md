@@ -135,3 +135,9 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 | Nome_Turma              | Nome da Turma.                                        |
 | Ano_Letivo              | Ano letivo das turmas.                                |
 | ID_Professor_Orientador | Identificador único do professor orientador da turma. |
+
+## 4. Desenhe as tabelas físicas e lógicas Relacionais com as (Chave _PK_ e campos)
+
+![relational](./Representations/Tabela Lógicas com Chave.png)
+
+
