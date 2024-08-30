@@ -153,4 +153,5 @@ Todo o código SQL pode ser visualizado baixando o arquivo disponibilizado no li
 ![Download Projeto_Data_Collection_Storage.db](https://github.com/matheusvieger/Data_Collection_Storage/blob/main/Projeto_Data_Collection_Storage.db)
 
 Recomendo o uso do SQLonline para essa consulta, um SGBD gratuito:
+
 [![SQL Online](https://cdn-icons-png.freepik.com/256/4248/4248443.png?semt=ais_hybrid)](https://sqliteonline.com/)
