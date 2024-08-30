@@ -18,6 +18,8 @@ Para essa atividade pode ser utilizado o **Draw.io** para criar os desenhos das 
 
 ## Case
 
+![Logo do Colégio Godai de Ensino](Godai_Logo.webp)
+
 A empresa, o **_Colégio Godai de Ensino_**, pretende criar um banco de dados onde contenha os dados de seus alunos, professores, disciplinas e notas dos alunos.
 Deve ser também criada uma tabela fato para reunir as dimensões.
 
