@@ -120,6 +120,28 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 
 ![relational](./Representations/tbl_lgc_keys.png)
 
-## 5.
+## 5. Crie as tabelas Fato e Dimensão
+
+### Fato_Notas
+
+| Lógico                   | Físico           | Chave |
+|--------------------------|------------------|-------|
+| Código da Nota           | `ID_Nota`        | PK    |
+| Código do Aluno          | `ID_Aluno`       | PK,FK |
+| Código do Professor      | `ID_Professor`   | PK,FK |
+| Código da Disciplina     | `ID_Disciplina`  | PK,FK |
+| Código da Turma          | `ID_Turma`       | PK,FK |
+| Nota obtida pelo aluno   | `Valor_Nota`     |       |
+| Data da prova da matéria | `Data_Avaliacao` |       |
+
+| Campo          | Descrição                                                          |
+|----------------|--------------------------------------------------------------------|
+| ID_Nota        | Identificador único da nota.                                       |
+| ID_Aluno       | Identificador único do aluno detentor da nota.                     |
+| ID_Professor   | Identificador único do aluno detentor da matéria.                  | 
+| ID_Disciplina  | Identificador único da disciplina na qual o aluno obteve a nota.   |
+| ID_Turma       | Identificador único da turma do aluno.                             |  
+| Nota           | Valor da nota obtida pelo aluno, com uma casa decimal de precisão. |
+| Data_Avaliacao | Data na qual a avaliação foi aplicada.                             |
 
 
