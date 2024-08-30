@@ -140,4 +140,6 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 
 ![relational](./Representations/tbl_lgc_keys.png)
 
+## 5.
+
 
