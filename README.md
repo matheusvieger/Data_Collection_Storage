@@ -20,8 +20,8 @@ Para essa atividade pode ser utilizado o **Draw.io** para criar os desenhos das 
 
 <img src="Godai_Logo.webp" alt="Logo do Colégio Godai de Ensino" width="30%"/>
 
-A empresa, o **_Colégio Godai de Ensino_**, pretende criar um banco de dados onde contenha os dados de seus alunos, professores, disciplinas e notas dos alunos.
-Deve ser também criada uma tabela fato para reunir as dimensões.
+A empresa, o **_Colégio Godai de Ensino_**, pretende criar um banco de dados onde contenha os dados de seus alunos, professores, disciplinas dos alunos.
+Deve ser também criada uma tabela fato para reunir as dimensões, apresentando as notas dos alunos.
 
 ## 1. Pense no nome do Domínio de Informação e da Sigla
 
@@ -77,15 +77,32 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 
 ### Alunos
 
-| Campo            | Descrição                                 |
-|------------------|-------------------------------------------|
-| ID_Aluno         | Identificador único do aluno.             |
-| Nome_Aluno       | Nome completo do aluno.                   |
-| Data_Nascimento  | Data de nascimento do aluno.              |
-| Genero           | Gênero o qual o aluno se identifica.      |
-| Endereço         | Endereço de residência do aluno.          |
-| Telefone_Contato | Telefone de contato do responsável legal. |
-| Email_Contato    | E-mail de contato do responsável legal.   |
+| Nome Físico             | Nome Lógico | Descrição | Tipo | Tabela | Nullable |
+|-------------------------|-------------|-----------|------|--------|----------|
+| ID_Aluno                | Código do Aluno Identificador único do aluno.             |
+| Nome_Aluno              | Nome do Aluno Nome completo do aluno.                   |
+| Data_Nascimento         | Data de NascimentoData de nascimento do aluno.              |
+| Genero                  | Gênero o qual o aluno se identifica.      |
+| Endereço                | Endereço de residência do aluno.          |
+| Telefone_Contato        | Telefone de contato do responsável legal. |
+| Email_Contato           | E-mail de contato do responsável legal.   |
+| ID_Professor            | Identificador único do professor.        |
+| Nome_Professor          | Nome completo do professor.              |
+| Data_Nascimento         | Data de nascimento do professor.         |
+| Genero                  | Gênero o qual o professor se identifica. |
+| Endereço                | Endereço de residência do professor.     |
+| Telefone_Contato        | Telefone de contato do professor.        |
+| Email_Contato           | E-mail de contato do professor.          |
+| ID_Disciplina           | Identificador único da disciplina.                         |
+| Nome_Disciplina         | Nome completo da disciplina.                               |
+| Descricao               | Breve descrição da disciplina.                             |
+| Carga Horária           | Tempo, em horas, que o aluno terá da disciplina.           |
+| ID_Professor            | Identificador único do professor que leciona a disciplina. |
+| ID_Turma                | Identificador único da turma.                         |
+| Nome_Turma              | Nome da Turma.                                        |
+| Ano_Letivo              | Ano letivo das turmas.                                |
+| ID_Professor_Orientador | Identificador único do professor orientador da turma. |
+| ID_Aluno                |
 
 ### Professores
 
@@ -128,7 +145,7 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 
 | Lógico                   | Físico           | Chave |
 |--------------------------|------------------|-------|
-| Código da Nota           | `ID_Nota`        | PK    |
+| Código da Nota           | `ID_Nota`        |       |
 | Código do Aluno          | `ID_Aluno`       | FK    |
 | Código do Professor      | `ID_Professor`   | FK    |
 | Código da Disciplina     | `ID_Disciplina`  | FK    |
