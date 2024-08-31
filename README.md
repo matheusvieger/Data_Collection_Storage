@@ -130,28 +130,18 @@ Recomendo o uso do SQLonline para essa consulta, um SGBD gratuito:
 
 SQL Fato_Notas Schema:
 
+(
 CREATE TABLE Fato_Notas (
-
     ID_Nota INT NOT NULL,
-
-    ID_Aluno INT NOT NULL,
-    
-    ID_Professor INT NOT NULL,
-    
+    ID_Aluno INT NOT NULL,   
+    ID_Professor INT NOT NULL,    
     ID_Disciplina INT NOT NULL,
-    
     ID_Turma INT NOT NULL,
-    
     Valor_Nota DECIMAL(2, 1) NOT NULL,
-    
     Data_Avaliacao DATE NOT NULL,
-    
     FOREIGN KEY (ID_Aluno) REFERENCES Alunos(ID_Aluno),
-    
     FOREIGN KEY (ID_Professor) REFERENCES Professores(ID_Professor),
-    
     FOREIGN KEY (ID_Disciplina) REFERENCES Disciplinas(ID_Disciplina),
-    
     FOREIGN KEY (ID_Turma) REFERENCES Turmas(ID_Turma)
-
+)
 )
