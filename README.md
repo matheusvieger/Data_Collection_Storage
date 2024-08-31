@@ -120,7 +120,7 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 
 ## 4. Desenhe as tabelas físicas e lógicas Relacionais com as (Chave _PK_ e campos)
 
-![relational](./Representations/tbl_lgc_keys.png)
+![relational](./Representations/tab_logic_keys.png)
 
 ## 5. Crie as tabelas Fato e Dimensão
 
