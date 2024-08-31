@@ -129,10 +129,10 @@ Deve ser também criada uma tabela fato para reunir as dimensões.
 | Lógico                   | Físico           | Chave |
 |--------------------------|------------------|-------|
 | Código da Nota           | `ID_Nota`        | PK    |
-| Código do Aluno          | `ID_Aluno`       | PK,FK |
-| Código do Professor      | `ID_Professor`   | PK,FK |
-| Código da Disciplina     | `ID_Disciplina`  | PK,FK |
-| Código da Turma          | `ID_Turma`       | PK,FK |
+| Código do Aluno          | `ID_Aluno`       | FK    |
+| Código do Professor      | `ID_Professor`   | FK    |
+| Código da Disciplina     | `ID_Disciplina`  | FK    |
+| Código da Turma          | `ID_Turma`       | FK    |
 | Nota obtida pelo aluno   | `Valor_Nota`     |       |
 | Data da prova da matéria | `Data_Avaliacao` |       |
 
