@@ -77,7 +77,7 @@ Deve ser também criada uma tabela fato para reunir as dimensões, apresentando 
 
 | Nome Físico             | Nome Lógico                    | Descrição                                                                       | Tipo         | Tabelas                                | Nullable |
 |-------------------------|--------------------------------|---------------------------------------------------------------------------------|--------------|----------------------------------------|----------|
-| ID_Aluno                | Código do Aluno                | Identificador único do aluno.                                                   | INT()        | Alunos / Turmas / Fato_Notas           | Não      |
+| ID_Aluno                | Código do Aluno                | Identificador único do aluno.                                                   | INT()        | Alunos / Fato_Notas                    | Não      |
 | Nome_Aluno              | Nome do Aluno                  | Nome completo do aluno.                                                         | VARCHAR(255) | Alunos                                 | Não      |
 | Data_Nascimento         | Data de Nascimento             | Data de nascimento do indivíduo identificado.                                   | DATE         | Alunos / Professores                   | Não      |
 | Genero                  | Gênero                         | Gênero o qual o indivíduo se identifica.                                        | VARCHAR(50)  | Alunos / Professores                   | Sim      |
@@ -90,7 +90,7 @@ Deve ser também criada uma tabela fato para reunir as dimensões, apresentando 
 | Nome_Disciplina         | Nome da Disciplina             | Nome completo da disciplina.                                                    | VARCHAR(255) | Disciplinas                            | Não      |
 | Descricao               | Descrição da Disciplina        | Breve descrição da disciplina.                                                  | TEXT         | Disciplinas                            | Não      |
 | Carga_Horaria           | Carga Horária                  | Tempo, em horas, que o aluno terá da disciplina.                                | INT()        | Disciplinas                            | Não      |
-| ID_Turma                | Código da Turma                | Identificador único da turma.                                                   | INT()        | Turmas / Fato_Notas                    | Não      |
+| ID_Turma                | Código da Turma                | Identificador único da turma.                                                   | INT()        | Alunos / Turmas / Fato_Notas           | Não      |
 | Nome_Turma              | Nome da Turma                  | Nome da Turma.                                                                  | VARCHAR(255) | Turmas                                 | Não      |
 | Ano_Letivo              | Ano Letivo                     | Ano letivo das turmas.                                                          | INT()        | Turmas                                 | Não      |
 | ID_Professor_Orientador | Código do Professor Orientador | Identificador único do professor orientador da turma (O mesmo do ID_Professor). | INT()        | Turmas                                 | Não      |
@@ -127,3 +127,20 @@ Todo o código SQL pode ser visualizado baixando o arquivo disponibilizado no li
 Recomendo o uso do SQLonline para essa consulta, um SGBD gratuito:
 
 [![SQL Online](https://cdn-icons-png.freepik.com/256/4248/4248443.png?semt=ais_hybrid)](https://sqliteonline.com/)
+
+SQL Fato_Notas Schema:
+`
+CREATE TABLE Fato_Notas (
+    ID_Nota INT NOT NULL,
+    ID_Aluno INT NOT NULL,
+    ID_Professor INT NOT NULL,
+    ID_Disciplina INT NOT NULL,
+    ID_Turma INT NOT NULL,
+    Valor_Nota DECIMAL(2, 1) NOT NULL,
+    Data_Avaliacao DATE NOT NULL,
+    FOREIGN KEY (ID_Aluno) REFERENCES Alunos(ID_Aluno),
+    FOREIGN KEY (ID_Professor) REFERENCES Professores(ID_Professor),
+    FOREIGN KEY (ID_Disciplina) REFERENCES Disciplinas(ID_Disciplina),
+    FOREIGN KEY (ID_Turma) REFERENCES Turmas(ID_Turma)
+)
+`
