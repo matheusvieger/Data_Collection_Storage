@@ -129,7 +129,7 @@ Recomendo o uso do SQLonline para essa consulta, um SGBD gratuito:
 [![SQL Online](https://cdn-icons-png.freepik.com/256/4248/4248443.png?semt=ais_hybrid)](https://sqliteonline.com/)
 
 SQL Fato_Notas Schema:
-`
+
 CREATE TABLE Fato_Notas (
     ID_Nota INT NOT NULL,
     ID_Aluno INT NOT NULL,
@@ -143,4 +143,4 @@ CREATE TABLE Fato_Notas (
     FOREIGN KEY (ID_Disciplina) REFERENCES Disciplinas(ID_Disciplina),
     FOREIGN KEY (ID_Turma) REFERENCES Turmas(ID_Turma)
 )
-`
+
