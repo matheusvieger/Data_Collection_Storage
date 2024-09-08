@@ -32,71 +32,121 @@ Deve ser também criada uma tabela fato para reunir as dimensões, apresentando 
 
 ### Alunos
 
-| Lógico                      | Físico             | Chave |
-|-----------------------------|--------------------|-------|
-| Código do Aluno             | `ID_Aluno`         | PK    |
-| Nome do Aluno               | `Nome_Aluno`       |       |
-| Data de Nascimento do Aluno | `Data_Nascimento`  |       |
-| Gênero do Aluno             | `Genero`           |       |
-| Endereço do Aluno           | `Endereco`         |       |
-| Telefone do Aluno           | `Telefone_Contato` |       |
-| Email do Aluno              | `Email_Contato`    |       |
+| Campo           | Tipo          | Atributos                        | Descrição                              |
+|-----------------|---------------|----------------------------------|----------------------------------------|
+| `aluno_id`      | INT           | PRIMARY KEY, AUTO_INCREMENT       | Identificador único do aluno.          |
+| `nome`          | VARCHAR(100)  | NOT NULL                           | Nome completo do aluno.                |
+| `data_nascimento` | DATE        | NOT NULL                           | Data de nascimento do aluno.           |
+| `ano_matricula` | INT           | NOT NULL                           | Ano em que o aluno foi matriculado.    |
+| `turma_id`      | INT           | FOREIGN KEY                        | Referência para a tabela `Turmas`.     |
 
-### Professores
 
-| Lógico                          | Físico             | Chave |
-|---------------------------------|--------------------|-------|
-| Código do Professor             | `ID_Professor`     | PK    |
-| Nome do Professor               | `Nome_Professor`   |       |
-| Data de Nascimento do Professor | `Data_Nascimento`  |       |
-| Gênero do Professor             | `Genero`           |       |
-| Endereço do Professor           | `Endereco`         |       |
-| Telefone do Professor           | `Telefone_Contato` |       |
-| Email do Professor              | `Email_Contato`    |       |
+### Responsáveis
 
-### Disciplinas
+| Campo           | Tipo          | Atributos                          | Descrição                                  |
+|-----------------|---------------|------------------------------------|--------------------------------------------|
+| `responsavel_id`| INT           | PRIMARY KEY, AUTO_INCREMENT        | Identificador único do pai/mãe/responsável.|
+| `nome`          | VARCHAR(100)  | NOT NULL                           | Nome completo do pai/mãe.                  |
+| `aluno_id`      | INT           | FOREIGN KEY                        | Referência para a tabela `Alunos`.         |
 
-| Lógico                  | Físico            | Chave |
-|-------------------------|-------------------|-------|
-| Código da Disciplina    | `ID_Disciplina`   | PK    |
-| Nome da Disciplina      | `Nome_Disciplina` |       |
-| Descrição da Disciplina | `Descricao`       |       |
-| Carga Horária           | `Carga_Horaria`   |       |
-| Código do Professor     | `Endereco`        | FK    |
 
-### Turmas
+### Pesquisas de Satisfação
+| Campo                       | Tipo          | Atributos                          | Descrição                                         |
+|-----------------------------|---------------|------------------------------------|---------------------------------------------------|
+| `pesquisa_id`               | INT           | PRIMARY KEY, AUTO_INCREMENT        | Identificador único da pesquisa.                  |
+| `data_pesquisa`             | DATE          | NOT NULL                           | Data em que a pesquisa foi realizada.             |
+| `aluno_id`                  | INT           | FOREIGN KEY                        | Referência para a tabela `Alunos`.                |
+| `responsavel_id`            | INT           | FOREIGN KEY                        | Referência para a tabela `Responsáveis`.          |
+| `satisfacao_geral`          | INT           | NOT NULL                           | Nota de satisfação geral (1 a 10).                |
+| `satisfacao_ensino`         | INT           | NOT NULL                           | Nota de satisfação com o ensino (1 a 10).         |
+| `satisfacao_infraestrutura` | INT           | NOT NULL                           | Nota de satisfação com a infraestrutura (1 a 10). |
+| `satisfacao_comunicacao`    | INT           | NOT NULL                           | Nota de satisfação com a comunicação (1 a 10).    |
+| `comentarios`               | TEXT          | NULLABLE                           | Feedback qualitativo sobre a pesquisa.            |
 
-| Lógico              | Físico                    | Chave |
-|---------------------|---------------------------|-------|
-| Código da Turma     | `ID_Turma`                | PK    |
-| Nome da Turma       | `Nome_Turma`              |       |
-| Ano Letivo          | `Ano_Letivo`              |       |
-| Código do Professor | `ID_Professor_Orientador` | FK    |
+
+### Exames
+
+| Campo          | Tipo          | Atributos                        | Descrição                              |
+|----------------|---------------|----------------------------------|----------------------------------------|
+| `exame_id`     | INT           | PRIMARY KEY, AUTO_INCREMENT       | Identificador único do exame.          |
+| `data_exame`   | DATE          | NOT NULL                           | Data em que o exame foi realizado.     |
+| `tipo_exame`   | VARCHAR(50)   | NOT NULL                           | Tipo do exame (nacional, internacional, etc.). |
+| `ano`          | INT           | NOT NULL                           | Ano em que o exame foi realizado.      |
+
+### Desempenho_Alunos
+
+| Campo           | Tipo          | Atributos                        | Descrição                              |
+|-----------------|---------------|----------------------------------|----------------------------------------|
+| `desempenho_id` | INT           | PRIMARY KEY, AUTO_INCREMENT       | Identificador único do desempenho.     |
+| `aluno_id`      | INT           | FOREIGN KEY                        | Referência para a tabela `Alunos`.     |
+| `exame_id`      | INT           | FOREIGN KEY                        | Referência para a tabela `Exames`.     |
+| `nota`          | DECIMAL(5, 2) | NOT NULL                           | Nota obtida no exame.                  |
+
+#### Atividades_Extracurriculares
+
+| Campo            | Tipo          | Atributos                        | Descrição                              |
+|------------------|---------------|----------------------------------|----------------------------------------|
+| `atividade_id`   | INT           | PRIMARY KEY, AUTO_INCREMENT       | Identificador único da atividade.      |
+| `nome_atividade` | VARCHAR(100)  | NOT NULL                           | Nome da atividade extracurricular.     |
+| `descricao`      | TEXT          | NULLABLE                           | Descrição da atividade.                |
+
+#### Participacao_Atividades
+
+| Campo                | Tipo          | Atributos                        | Descrição                              |
+|----------------------|---------------|----------------------------------|----------------------------------------|
+| `participacao_id`    | INT           | PRIMARY KEY, AUTO_INCREMENT       | Identificador único da participação.   |
+| `aluno_id`           | INT           | FOREIGN KEY                        | Referência para a tabela `Alunos`.     |
+| `atividade_id`       | INT           | FOREIGN KEY                        | Referência para a tabela `Atividades_Extracurriculares`. |
+| `data_participacao`  | DATE          | NOT NULL                           | Data da participação na atividade.     |
+
+#### Turmas
+
+| Campo          | Tipo          | Atributos                        | Descrição                              |
+|----------------|---------------|----------------------------------|----------------------------------------|
+| `turma_id`     | INT           | PRIMARY KEY, AUTO_INCREMENT       | Identificador único da turma.          |
+| `ano`          | INT           | NOT NULL                           | Ano letivo da turma.                   |
+| `descricao`    | VARCHAR(50)   | NOT NULL                           | Descrição da turma (ex.: 1º ano, 2º ano). |
+
 
 ## 3. Crie o Glossário de Dados
 
-| Nome Físico             | Nome Lógico                    | Descrição                                                                       | Tipo         | Tabelas                                | Nullable |
-|-------------------------|--------------------------------|---------------------------------------------------------------------------------|--------------|----------------------------------------|----------|
-| ID_Aluno                | Código do Aluno                | Identificador único do aluno.                                                   | INT()        | Alunos / Fato_Notas                    | Não      |
-| Nome_Aluno              | Nome do Aluno                  | Nome completo do aluno.                                                         | VARCHAR(255) | Alunos                                 | Não      |
-| Data_Nascimento         | Data de Nascimento             | Data de nascimento do indivíduo identificado.                                   | DATE         | Alunos / Professores                   | Não      |
-| Genero                  | Gênero                         | Gênero o qual o indivíduo se identifica.                                        | VARCHAR(50)  | Alunos / Professores                   | Sim      |
-| Endereco                | Endereço                       | Endereço de residência do indivíduo.                                            | VARCHAR(255) | Alunos / Professores                   | Não      |
-| Telefone_Contato        | Telefone                       | Telefone de contato do responsável legal.                                       | VARCHAR(20)  | Alunos / Professores                   | Não      |
-| Email_Contato           | E-mail                         | E-mail de contato do responsável legal.                                         | VARCHAR(255) | Alunos / Professores                   | Não      |
-| ID_Professor            | Código do Professor            | Identificador único do professor.                                               | INT()        | Professores / Disciplinas / Fato_Notas | Não      |
-| Nome_Professor          | Nome do Professor              | Nome completo do professor.                                                     | VARCHAR(255) | Professores                            | Não      |
-| ID_Disciplina           | Código da Disciplina           | Identificador único da disciplina.                                              | INT()        | Disciplinas / Fato_Notas               | Não      |
-| Nome_Disciplina         | Nome da Disciplina             | Nome completo da disciplina.                                                    | VARCHAR(255) | Disciplinas                            | Não      |
-| Descricao               | Descrição da Disciplina        | Breve descrição da disciplina.                                                  | TEXT         | Disciplinas                            | Não      |
-| Carga_Horaria           | Carga Horária                  | Tempo, em horas, que o aluno terá da disciplina.                                | INT()        | Disciplinas                            | Não      |
-| ID_Turma                | Código da Turma                | Identificador único da turma.                                                   | INT()        | Alunos / Turmas / Fato_Notas           | Não      |
-| Nome_Turma              | Nome da Turma                  | Nome da Turma.                                                                  | VARCHAR(255) | Turmas                                 | Não      |
-| Ano_Letivo              | Ano Letivo                     | Ano letivo das turmas.                                                          | INT()        | Turmas                                 | Não      |
-| ID_Professor_Orientador | Código do Professor Orientador | Identificador único do professor orientador da turma (O mesmo do ID_Professor). | INT()        | Turmas                                 | Não      |
-| ID_Nota                 | Código da Nota                 | Identificador único da nota.                                                    | INT()        | Fato_Notas                             | Não      |
-| Nota                    | Nota                           | Valor da nota obtida pelo aluno, com uma casa decimal de precisão.              | DECIMAL(2,1) | Fato_Notas                             | Não      |
-| Data_Avaliacao          | Data da Avaliação              | Data na qual a avaliação foi aplicada.                                          | DATE         | Fato_Notas                             | Não      |
+| Tabela                      | Campo                       | Tipo            | Atributos                        | Descrição                                                        | Tipo de Tabela  |
+|-----------------------------|-----------------------------|-----------------|----------------------------------|------------------------------------------------------------------|-----------------|
+| **Alunos**                  | `aluno_id`                  | INT             | PRIMARY KEY, AUTO_INCREMENT       | Identificador único do aluno.                                    | Dimensão        |
+|                             | `nome`                      | VARCHAR(100)    | NOT NULL                           | Nome completo do aluno.                                          | Dimensão        |
+|                             | `data_nascimento`           | DATE            | NOT NULL                           | Data de nascimento do aluno.                                     | Dimensão        |
+|                             | `ano_matricula`             | INT             | NOT NULL                           | Ano em que o aluno foi matriculado.                              | Dimensão        |
+|                             | `turma_id`                  | INT             | FOREIGN KEY                        | Referência para a tabela `Turmas`.                               | Dimensão        |
+| **Pais**                    | `pai_id`                    | INT             | PRIMARY KEY, AUTO_INCREMENT       | Identificador único do pai/mãe.                                  | Dimensão        |
+|                             | `nome`                      | VARCHAR(100)    | NOT NULL                           | Nome completo do pai/mãe.                                        | Dimensão        |
+|                             | `aluno_id`                  | INT             | FOREIGN KEY                        | Referência para a tabela `Alunos`.                               | Dimensão        |
+| **Pesquisas_Satisfacao**    | `pesquisa_id`               | INT             | PRIMARY KEY, AUTO_INCREMENT       | Identificador único da pesquisa.                                 | Fato            |
+|                             | `data_pesquisa`             | DATE            | NOT NULL                           | Data em que a pesquisa foi realizada.                            | Fato            |
+|                             | `aluno_id`                  | INT             | FOREIGN KEY                        | Referência para a tabela `Alunos`.                               | Fato            |
+|                             | `pai_id`                    | INT             | FOREIGN KEY                        | Referência para a tabela `Pais`.                                 | Fato            |
+|                             | `satisfacao_geral`          | INT             | NOT NULL                           | Nota de satisfação geral (1 a 10).                               | Fato            |
+|                             | `satisfacao_ensino`         | INT             | NOT NULL                           | Nota de satisfação com o ensino (1 a 10).                        | Fato            |
+|                             | `satisfacao_infraestrutura` | INT             | NOT NULL                           | Nota de satisfação com a infraestrutura (1 a 10).                 | Fato            |
+|                             | `satisfacao_comunicacao`    | INT             | NOT NULL                           | Nota de satisfação com a comunicação (1 a 10).                   | Fato            |
+|                             | `comentarios`               | TEXT            | NULLABLE                           | Feedback qualitativo sobre a pesquisa.                           | Fato            |
+| **Exames**                  | `exame_id`                  | INT             | PRIMARY KEY, AUTO_INCREMENT       | Identificador único do exame.                                    | Dimensão        |
+|                             | `data_exame`                | DATE            | NOT NULL                           | Data em que o exame foi realizado.                               | Dimensão        |
+|                             | `tipo_exame`                | VARCHAR(50)     | NOT NULL                           | Tipo do exame (nacional, internacional, etc.).                   | Dimensão        |
+|                             | `ano`                       | INT             | NOT NULL                           | Ano em que o exame foi realizado.                                | Dimensão        |
+| **Desempenho_Alunos**       | `desempenho_id`            | INT             | PRIMARY KEY, AUTO_INCREMENT       | Identificador único do desempenho.                               | Fato            |
+|                             | `aluno_id`                 | INT             | FOREIGN KEY                        | Referência para a tabela `Alunos`.                               | Fato            |
+|                             | `exame_id`                 | INT             | FOREIGN KEY                        | Referência para a tabela `Exames`.                               | Fato            |
+|                             | `nota`                     | DECIMAL(5, 2)   | NOT NULL                           | Nota obtida no exame.                                            | Fato            |
+| **Atividades_Extracurriculares** | `atividade_id`        | INT             | PRIMARY KEY, AUTO_INCREMENT       | Identificador único da atividade.                                | Dimensão        |
+|                             | `nome_atividade`            | VARCHAR(100)    | NOT NULL                           | Nome da atividade extracurricular.                               | Dimensão        |
+|                             | `descricao`                 | TEXT            | NULLABLE                           | Descrição da atividade.                                          | Dimensão        |
+| **Participacao_Atividades** | `participacao_id`           | INT             | PRIMARY KEY, AUTO_INCREMENT       | Identificador único da participação.                             | Fato            |
+|                             | `aluno_id`                  | INT             | FOREIGN KEY                        | Referência para a tabela `Alunos`.                               | Fato            |
+|                             | `atividade_id`             | INT             | FOREIGN KEY                        | Referência para a tabela `Atividades_Extracurriculares`.         | Fato            |
+|                             | `data_participacao`         | DATE            | NOT NULL                           | Data da participação na atividade.                               | Fato            |
+| **Turmas**                  | `turma_id`                  | INT             | PRIMARY KEY, AUTO_INCREMENT       | Identificador único da turma.                                    | Dimensão        |
+|                             | `ano`                       | INT             | NOT NULL                           | Ano letivo da turma.                                             | Dimensão        |
+|                             | `descricao`                | VARCHAR(50)     | NOT NULL                           | Descrição da turma (ex.: 1º ano, 2º ano).                        | Dimensão        |
 
 ## 4. Desenhe as tabelas físicas e lógicas Relacionais com as (Chave _PK_ e campos)
 
