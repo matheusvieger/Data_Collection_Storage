@@ -117,13 +117,13 @@ Deve ser também criada uma tabela fato para reunir as dimensões, apresentando 
 |                             | `data_nascimento`           | DATE            | NOT NULL                           | Data de nascimento do aluno.                                     | Dimensão        |
 |                             | `ano_matricula`             | INT             | NOT NULL                           | Ano em que o aluno foi matriculado.                              | Dimensão        |
 |                             | `turma_id`                  | INT             | FOREIGN KEY                        | Referência para a tabela `Turmas`.                               | Dimensão        |
-| **Pais**                    | `pai_id`                    | INT             | PRIMARY KEY, AUTO_INCREMENT       | Identificador único do pai/mãe.                                  | Dimensão        |
+| **Responsáveis**        | `responsavel_id`                    | INT             | PRIMARY KEY, AUTO_INCREMENT       | Identificador único do pai/mãe.                                  | Dimensão        |
 |                             | `nome`                      | VARCHAR(100)    | NOT NULL                           | Nome completo do pai/mãe.                                        | Dimensão        |
 |                             | `aluno_id`                  | INT             | FOREIGN KEY                        | Referência para a tabela `Alunos`.                               | Dimensão        |
 | **Pesquisas_Satisfacao**    | `pesquisa_id`               | INT             | PRIMARY KEY, AUTO_INCREMENT       | Identificador único da pesquisa.                                 | Fato            |
 |                             | `data_pesquisa`             | DATE            | NOT NULL                           | Data em que a pesquisa foi realizada.                            | Fato            |
 |                             | `aluno_id`                  | INT             | FOREIGN KEY                        | Referência para a tabela `Alunos`.                               | Fato            |
-|                             | `pai_id`                    | INT             | FOREIGN KEY                        | Referência para a tabela `Pais`.                                 | Fato            |
+|                             | `responsavel_id`                    | INT             | FOREIGN KEY                        | Referência para a tabela `Responsáveis`.                                 | Fato            |
 |                             | `satisfacao_geral`          | INT             | NOT NULL                           | Nota de satisfação geral (1 a 10).                               | Fato            |
 |                             | `satisfacao_ensino`         | INT             | NOT NULL                           | Nota de satisfação com o ensino (1 a 10).                        | Fato            |
 |                             | `satisfacao_infraestrutura` | INT             | NOT NULL                           | Nota de satisfação com a infraestrutura (1 a 10).                 | Fato            |
